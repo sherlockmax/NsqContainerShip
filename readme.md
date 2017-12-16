@@ -17,35 +17,35 @@
 
 ### 1. start container ship
 
-```
+```bash
 .\main.sh start
 ```
 
 ### 2. create topic
 
-```
+```bash
 .\main.sh create topic "topic1"
 
-# or you can create by admin page (http://localhost:4171/lookup)
+# or you can create topic by admin page (http://localhost:4171/lookup)
 ```
 
 ### 3. create channel
 
-```
+```bash
 .\main.sh create channel "topic1" "channel1"
 
-# or you can create by admin page (http://localhost:4171/lookup)
+# or you can create channel by admin page (http://localhost:4171/lookup)
 ```
 
 ### 4. open a new terminal, and create listener to listen the channel
 
-```
+```bash
 .\main.sh listen "topic1" "channel1"
 ```
 
 ### 5. send message to topic, and listener will recive the message
 
-```
+```bash
 .\main.sh send "topic1" "this is a testing message."
 
 # send message by curl : 
@@ -56,13 +56,13 @@ curl -d "message" "http://localhost:4151/pub?topic=topic1"
 
 ### 1. show help
 
-```
+```bash
 .\main.sh help
 ```
 
 ### 2. close or restart all container
 
-```
+```bash
 .\main.sh stop
 # or
 .\main.sh restart
