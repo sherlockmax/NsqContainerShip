@@ -1,15 +1,25 @@
 function callHelp {
     echo "指令: main.sh {命令} [參數]"
     cat <<EOF
-start...........啟動nsq
-stop............停止nsq
-restart.........重新啟動nsq
-update..........自我更新
-create..........
-    topic.......建立新主題(使用：main.sh create topic [主題名稱])
-    channel.....於指定的主題建立新頻道(使用：main.sh create topic [主題名稱] [頻道名稱])
-help............指令說明
-*...............指令說明
+    
+start...........啟動nsq container ship
+                指令: main.sh start
+stop............停止nsq container ship
+                指令: main.sh stop
+restart.........重新啟動nsq container ship
+                指令: main.sh restart
+create topic....建立新主題(topic)
+                指令: main.sh create topic [:主題名稱]
+create channel..於指定的主題(topic)中建立新頻道(channel)
+                指令: main.sh create topic [:主題名稱] [:頻道名稱]
+send............傳送訊息到指定的主題(topic)
+                指令: main.sh send [:主題名稱] [:訊息]
+listen..........監聽指定的主題(topic)頻道(channel)的訊息，若只給主題(topic)則會自己建立一個新的頻道並監聽
+                指令: main.sh listen [:主題名稱] [頻道名稱]
+self_update.....nsq container ship的自我版本更新
+                指令: main.sh self_update [:主題名稱] [頻道名稱]
+help............使用說明
+                指令: main.sh help
 
 EOF
     exit 0
@@ -27,23 +37,23 @@ function stopCompose {
 
 function createTopic {
     topic=${1}
-    curl -X POST "http://127.0.0.1:4151/topic/create?topic=$topic"
+    curl -X POST "http://localhost:4151/topic/create?topic=$topic"
 }
 
 function createChannel {
     topic=${1}
     channel=${2}
-    curl -X POST "http://127.0.0.1:4151/channel/create?topic=$topic&channel=$channel"
+    curl -X POST "http://localhost:4151/channel/create?topic=$topic&channel=$channel"
 }
 
 function sendMessage {
     topic=${1}
     message=${2}
-    curl -d "$message" "http://127.0.0.1:4151/put?topic=$topic"
+    curl -d "$message" "http://localhost:4151/pub?topic=$topic"
 }
 
 function listen {
     topic=${1}
     channel=${2}
-    docker run --name nsqtail --link=docker_nsqlookupd_1:lookup nsqio/nsq /nsq_tail --topic="$topic" --channel="$channel" --lookupd-http-address=nsqlookupd:4161
+    docker exec listen nsq_tail --topic=$topic --channel=$channel --lookupd-http-address=lookup:4161
 }

@@ -1,0 +1,32 @@
+version: '3'
+services:
+  lookup:
+    container_name: lookup
+    image: nsqio/nsq
+    command: /nsqlookupd
+    ports:
+      - "4160:4160"
+      - "4161:4161"
+  worker:
+    container_name: worker
+    image: nsqio/nsq
+    command: /nsqd --lookupd-tcp-address=lookup:4160
+    depends_on:
+      - lookup
+    ports:
+      - "4150:4150"
+      - "4151:4151"
+  admin:
+    container_name: admin
+    image: nsqio/nsq
+    command: /nsqadmin --lookupd-http-address=lookup:4161
+    depends_on:
+      - lookup
+    ports:
+      - "4171:4171"
+  listen:
+    container_name: listen
+    image: nsqio/nsq
+    command: tail -f /dev/null
+    depends_on:
+      - lookup
