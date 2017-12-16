@@ -47,6 +47,9 @@
 
 ```
 .\main.sh send "topic1" "this is a testing message."
+
+# send message by curl : 
+curl -d "message" "http://localhost:4151/pub?topic=topic1"
 ```
 
 ## tip
