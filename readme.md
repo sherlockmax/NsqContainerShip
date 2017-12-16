@@ -1,6 +1,6 @@
 # NSQ's Container Ship 
 
-#### using docker compose create a nsq environment
+#### using docker compose create a NSQ environment
 
 ## Prepared before use
 
