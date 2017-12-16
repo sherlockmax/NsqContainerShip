@@ -12,15 +12,25 @@ source $DIR/function.sh
 
 case "$1" in
     start)
-        cd $DIR/nsq;
+        cd $DIR/nsq
         startCompose;;
     stop)
-        cd $DIR/nsq;
+        cd $DIR/nsq
         stopCompose;;
     restart)
-        cd $DIR/nsq;
-        stopCompose;
+        cd $DIR/nsq
+        stopCompose
         startCompose;;
+    auto_start)
+        cd $DIR/nsq
+        stopCompose
+        startCompose
+        echo "create topic named: topic1"
+        createTopic 'topic1'
+        echo "create channel in 'topic1' named: channel1"
+        createChannel 'topic1' 'channel1'
+        echo "listen topic1/channel1"
+        listen 'topic1' 'channel1';;
     create)
         case "$2" in
             topic)
