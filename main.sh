@@ -37,8 +37,7 @@ case "$1" in
     self_update)
         git checkout .
         git remote update -p
-        git pull origin master
-        git submodule upate;;
+        git pull origin maste;;
     *|help)
         callHelp;;
 esac
