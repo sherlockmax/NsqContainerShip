@@ -1,8 +1,8 @@
 # NSQ's Container Ship 
 
-### using docker compose create a nsq environment
+#### using docker compose create a nsq environment
 
-# Prepared before use 事前準備
+## Prepared before use
 
 1. [Docker](https://docs.docker.com/engine/installation/) is installed. (include [docker-compose](https://docs.docker.com/compose/install/))
 
@@ -13,15 +13,15 @@
     * 4151
     * 4171 
 
-# How to use
+## How to use
 
-## 1. start container ship
+### 1. start container ship
 
 ```
 .\main.sh start
 ```
 
-## 2. create topic
+### 2. create topic
 
 ```
 .\main.sh create topic "topic1"
@@ -29,7 +29,7 @@
 # or you can create by admin page (http://localhost:4171/lookup)
 ```
 
-## 3. create channel
+### 3. create channel
 
 ```
 .\main.sh create channel "topic1" "channel1"
@@ -37,27 +37,27 @@
 # or you can create by admin page (http://localhost:4171/lookup)
 ```
 
-## 4. open a new terminal, and create listener to listen the channel
+### 4. open a new terminal, and create listener to listen the channel
 
 ```
 .\main.sh listen "topic1" "channel1"
 ```
 
-## 5. send message to topic, and listener will recive the message
+### 5. send message to topic, and listener will recive the message
 
 ```
 .\main.sh send "topic1" "this is a testing message."
 ```
 
-# tip
+## tip
 
-## 1. show help
+### 1. show help
 
 ```
 .\main.sh help
 ```
 
-## 2. close or restart all container
+### 2. close or restart all container
 
 ```
 .\main.sh stop
