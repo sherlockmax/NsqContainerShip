@@ -25,16 +25,12 @@ main.sh start
 
 ```bash
 main.sh create topic "topic1"
-
-# or you can create topic by admin page (http://localhost:4171/lookup)
 ```
 
 ### 3. create channel
 
 ```bash
 main.sh create channel "topic1" "channel1"
-
-# or you can create channel by admin page (http://localhost:4171/lookup)
 ```
 
 ### 4. open a new terminal, and create listener to listen the channel
