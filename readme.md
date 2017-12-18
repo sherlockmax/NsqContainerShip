@@ -61,5 +61,5 @@ ncs.sh help
 ```bash
 ncs.sh stop
 # or
-nsc.sh restart
+ncs.sh restart
 ```
