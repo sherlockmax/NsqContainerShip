@@ -12,6 +12,12 @@ create topic....建立新主題(topic)
                 指令: nsc.sh create topic [:主題名稱]
 create channel..於指定的主題(topic)中建立新頻道(channel)
                 指令: nsc.sh create topic [:主題名稱] [:頻道名稱]
+auto_start......自動完成下列動作
+                1. 啟動或重新啟動nsq container ship
+                2. 建立主題，主題名稱：[:主題名稱]
+                3. 於步驟二的主題中建立頻道，頻道名稱：[:頻道名稱]
+                4. 監聽步驟三所建立的頻道
+                指令：nsc.sh auto_start [:主題名稱] [:頻道名稱]
 send............傳送訊息到指定的主題(topic)
                 指令: nsc.sh send [:主題名稱] [:訊息]
 listen..........監聽指定的主題(topic)頻道(channel)的訊息，若只給主題(topic)則會自己建立一個新的頻道並監聽

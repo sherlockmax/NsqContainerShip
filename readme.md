@@ -55,7 +55,7 @@ curl -d 'message' 'http://localhost:4151/pub?topic=topic1'
 ##### This command will do "How to use" step.1 to step.4. (Topic: topic1/Channel: Channel1) 
 
 ```bash
-ncs.sh auto_start
+ncs.sh auto_start 'topic1' 'channel1'
 ```
 
 ### 2. Close or restart all container

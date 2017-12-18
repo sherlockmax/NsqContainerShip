@@ -22,15 +22,17 @@ case "$1" in
         stopCompose
         startCompose;;
     auto_start)
+        topic=${2}
+        channel=${3}
         cd $DIR/nsq
         stopCompose
         startCompose
-        echo "create topic named: topic1"
-        createTopic 'topic1'
-        echo "create channel in 'topic1' named: channel1"
-        createChannel 'topic1' 'channel1'
-        echo "listen topic1/channel1"
-        listen 'topic1' 'channel1';;
+        echo "create topic named: $topic"
+        createTopic $topic
+        echo "create channel in '$topic' named: $channel"
+        createChannel $topic  $channel
+        echo "listen $topic/ $channel"
+        listen $topic  $channel;;
     create)
         case "$2" in
             topic)
