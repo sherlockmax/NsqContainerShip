@@ -24,28 +24,28 @@ nsc.sh start
 ### 2. create topic
 
 ```bash
-nsc.sh create topic "topic1"
+nsc.sh create topic 'topic1'
 ```
 
 ### 3. create channel
 
 ```bash
-nsc.sh create channel "topic1" "channel1"
+nsc.sh create channel 'topic1' 'channel1'
 ```
 
 ### 4. open a new terminal, and create listener to listen the channel
 
 ```bash
-nsc.sh listen "topic1" "channel1"
+nsc.sh listen 'topic1' 'channel1'
 ```
 
 ### 5. send message to topic, and listener will recive the message
 
 ```bash
-nsc.sh send "topic1" "this is a testing message."
+nsc.sh send 'topic1' 'this is a testing message.'
 
 # send message by curl : 
-curl -d "message" "http://localhost:4151/pub?topic=topic1"
+curl -d 'message' 'http://localhost:4151/pub?topic=topic1'
 ```
 
 ## tip
