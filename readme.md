@@ -15,13 +15,13 @@
 
 ## How to use
 
-### 1. start container ship
+### 1. Start container ship
 
 ```bash
 ncs.sh start
 ```
 
-### 2. create topic
+### 2. Create topic
 
 ```bash
 ncs.sh create topic 'topic1'
@@ -33,13 +33,13 @@ ncs.sh create topic 'topic1'
 ncs.sh create channel 'topic1' 'channel1'
 ```
 
-### 4. open a new terminal, and create listener to listen the channel
+### 4. Open a new terminal, and create listener to listen the channel
 
 ```bash
 ncs.sh listen 'topic1' 'channel1'
 ```
 
-### 5. send message to topic, and listener will recive the message
+### 5. Send message to topic, and listener will recive the message
 
 ```bash
 ncs.sh send 'topic1' 'this is a testing message.'
@@ -50,16 +50,24 @@ curl -d 'message' 'http://localhost:4151/pub?topic=topic1'
 
 ## tip
 
-### 1. show help
+### 1. Auto start
+
+##### This command will do "How to use" step.1 to step.4. (Topic: topic1/Channel: Channel1) 
 
 ```bash
-ncs.sh help
+ncs.sh auto_start
 ```
 
-### 2. close or restart all container
+### 2. Close or restart all container
 
 ```bash
 ncs.sh stop
 # or
 ncs.sh restart
+```
+
+### 3. Show help
+
+```bash
+ncs.sh help
 ```
