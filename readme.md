@@ -59,7 +59,7 @@ ncs.sh help
 ### 2. close or restart all container
 
 ```bash
-nsc.sh stop
+ncs.sh stop
 # or
 nsc.sh restart
 ```
