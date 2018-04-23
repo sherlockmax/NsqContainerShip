@@ -10,7 +10,7 @@ services:
   worker:
     container_name: worker
     image: nsqio/nsq
-    command: /nsqd --lookupd-tcp-address=lookup:4160
+    command: /nsqd --lookupd-tcp-address=lookup:4160 --broadcast-address=lookup
     depends_on:
       - lookup
     ports:
