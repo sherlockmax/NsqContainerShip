@@ -53,3 +53,5 @@ case "$1" in
     *|help)
         callHelp;;
 esac
+
+echo ""
