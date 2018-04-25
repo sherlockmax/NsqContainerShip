@@ -13,6 +13,10 @@
     * 4151
     * 4171
 
+3. Add to /etc/hosts
+	* 127.0.0.1 lookup
+	* 127.0.0.1 worker
+
 ## How to use
 
 ### 1. Start container ship
